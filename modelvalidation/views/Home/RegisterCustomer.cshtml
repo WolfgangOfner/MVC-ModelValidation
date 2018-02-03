@@ -1,0 +1,23 @@
+﻿@model ModelValidation.Models.Customer
+
+@{
+    ViewBag.Title = "Register new customer";
+}
+
+<h4>Register new customer</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <p>@Html.ValidationMessageFor(x => x.Name)</p>
+    <p>Customer name: @Html.EditorFor(m => m.Name)</p>
+
+    <p>@Html.ValidationMessageFor(x => x.Birthday)</p>
+    <p>Customer birthday: @Html.EditorFor(m => m.Birthday)</p>
+
+    <p>@Html.ValidationMessageFor(x => x.TermsAndConditionAccepted)</p>
+    <p>@Html.EditorFor(m => m.TermsAndConditionAccepted) I accept the terms & conditions</p>
+    <input type="submit" value="Register" />
+}
+
